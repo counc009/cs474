@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+# Usage: python3 <script> <k> <dot file>
+#   where <k> is an integer
+#     and <dot file> is a path to the desired .dot file
 
 # Requires the pyparsing package installed (can be installed from pip)
 # Requires z3 installed (install z3-solver from pip)
