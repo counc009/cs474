@@ -1,6 +1,3 @@
-; As normal, I prove validity to showing that the negation of alpha_G is unsat
-; We define a function for handling intersection as described in my write-up
-
 (declare-const l1 Real)
 (declare-const u1 Real)
 (declare-const l2 Real)
