@@ -5,28 +5,27 @@
 
 (define-fun Ea ((a Real) (b Real))
   Real
-  (+ (* PA11 a b)
-     (* PA12 a (- 1 b))
-     (* PA21 (- 1 a) b)
-     (* PA22 (- 1 a) (- 1 b))))
+  (+ (* a (+ (* PA11 b) PA12 (* PA12 (- 1.0) b) (* PA21 (- 1.0) b)
+             (* PA22 (- 1.0)) ))
+     (* a (* PA22 b))
+     (+ (* PA21 b) PA22 (* PA22 (- 1.0) b))
+  )
+)
+
 (define-fun Eb ((a Real) (b Real))
   Real
-  (+ (* PB11 a b)
-     (* PB12 a (- 1 b))
-     (* PB21 (- 1 a) b)
-     (* PB22 (- 1 a) (- 1 b))))
+  (+ (* b (+ (* PA11 a) (* PA12 a (- 1.0)) PA21 (* PA21 (- 1.0) a)
+             (* PA22 (- 1.0)) (* PA22 a)))
+     (+ (* PA12 a) PA22 (* PA22 (- 1.0) a))
+  )
+)
 
 (declare-const a Real)
 (declare-const b Real)
 
-(define-fun psi () Bool
-  (and (<= 0 a) (<= a 1) (<= 0 b) (<= b 1)
-        (forall ((ap Real)) (=> (and (<= 0 ap) (<= ap 1))
-                              (<= (Ea ap b)
-                                  (Ea a b))))
-        (forall ((bp Real)) (=> (and (<= 0 bp) (<= bp 1))
-                              (<= (Eb a bp)
-                                  (Eb a b))))))
-
-(assert psi)
-(apply qe)
+(assert (and (<= 0.0 a) (<= a 1.0) (<= 0.0 b) (<= b 1.0)
+        (forall ((ap Real)) (=> (and (<= 0.0 ap) (<= ap 1.0))
+                                (<= (Ea ap b) (Ea a b))))
+        (forall ((bp Real)) (=> (and (<= 0.0 bp) (<= bp 1.0))
+                                (<= (Eb a bp) (Eb a b))))))
+(apply (! qe :qe-nonlinear true))
