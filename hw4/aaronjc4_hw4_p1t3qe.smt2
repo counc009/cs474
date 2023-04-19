@@ -6,8 +6,7 @@
 (define-fun Ea ((a Real) (b Real))
   Real
   (+ (* a (+ (* PA11 b) PA12 (* PA12 (- 1.0) b) (* PA21 (- 1.0) b)
-             (* PA22 (- 1.0)) ))
-     (* a (* PA22 b))
+             (* PA22 (- 1.0)) (* PA22 b)))
      (+ (* PA21 b) PA22 (* PA22 (- 1.0) b))
   )
 )
