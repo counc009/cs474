@@ -14,7 +14,7 @@
     (= (f y (g y)) e) (= (f (g y) y) e) (= (f z (g z)) e) (= (f (g z) z) e)
 
     (= (f e e) e) (= (f e e) e) (= (f x e) x) (= (f e x) x)
-    (= (f y e) e) (= (f e y) y) (= (f z e) z) (= (f e z) z)
+    (= (f y e) y) (= (f e y) y) (= (f z e) z) (= (f e z) z)
 
     (= (f (f e e) e) (f e (f e e))) (= (f (f e e) x) (f e (f e x)))
     (= (f (f e e) y) (f e (f e y))) (= (f (f e e) z) (f e (f e z)))
