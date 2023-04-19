@@ -10,7 +10,7 @@
     (= (f i i) i) (= (f i i) i) (not (= e i))
     
     (= (f e (g e)) e) (= (f (g e) e) e)
-    (= (f i (g i)) i) (= (f (g i) i) i)
+    (= (f i (g i)) e) (= (f (g i) i) e)
 
     (= (f e e) e) (= (f e e) e)
     (= (f i e) i) (= (f e i) i)
